@@ -1,0 +1,36 @@
+.recruiter__actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: var(--space-md); }
+.recruiter__block { padding: var(--space-md) 0; border-top: 1px solid var(--border); }
+.recruiter__h {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+.recruiter__para { color: var(--text-soft); line-height: 1.75; max-width: 70ch; }
+.recruiter__note { color: var(--text-muted); font-size: 0.82rem; margin-top: 0.8rem; font-style: italic; }
+.recruiter__skills { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.recruiter__projects { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.4rem; }
+.recruiter__project {
+  display: flex; justify-content: space-between; gap: 1.5rem; align-items: flex-start;
+  padding: 1.3rem 1.5rem; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
+}
+.recruiter__project h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.3rem; }
+.recruiter__project p { font-size: 0.9rem; color: var(--text-soft); line-height: 1.55; margin-bottom: 0.6rem; }
+.recruiter__ptech { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.recruiter__plinks { display: flex; flex-direction: column; gap: 0.5rem; flex-shrink: 0; }
+.recruiter__plinks a { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; color: var(--accent-1); text-decoration: none; white-space: nowrap; }
+.recruiter__learning { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.learning-pill {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.5rem 1rem; border-radius: 10px; font-size: 0.88rem; font-weight: 500;
+  color: var(--text); background: color-mix(in srgb, var(--accent-2) 12%, transparent);
+  border: 1px dashed color-mix(in srgb, var(--accent-1) 45%, transparent);
+}
+.recruiter__cta { text-align: center; padding: var(--space-md) 0; }
+.recruiter__cta h3 { font-family: var(--font-display); font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 700; margin-bottom: 0.4rem; }
+.recruiter__cta p { color: var(--text-soft); margin-bottom: 1.2rem; }
+.recruiter__cta-actions { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+@media (max-width: 640px) {
+  .recruiter__project { flex-direction: column; }
+  .recruiter__plinks { flex-direction: row; }
+}

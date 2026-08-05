@@ -1,0 +1,65 @@
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: transform 0.2s var(--ease), box-shadow 0.3s var(--ease),
+    border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+.btn__label {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn__icon {
+  display: inline-flex;
+  transition: transform 0.25s var(--ease);
+}
+.btn:hover .btn__icon {
+  transform: translateX(3px);
+}
+.btn--primary {
+  color: #fff;
+  background: var(--gradient);
+  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.6);
+}
+.btn--primary:hover {
+  box-shadow: 0 16px 40px -10px rgba(99, 102, 241, 0.75);
+}
+.btn--ghost {
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  backdrop-filter: blur(10px);
+}
+.btn--ghost:hover {
+  border-color: var(--accent-1);
+}
+.btn__ripple {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  animation: ripple 0.65s var(--ease) forwards;
+  z-index: 1;
+}
+@keyframes ripple {
+  to {
+    width: 320px;
+    height: 320px;
+    opacity: 0;
+  }
+}

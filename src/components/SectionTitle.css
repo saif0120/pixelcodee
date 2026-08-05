@@ -1,0 +1,13 @@
+.section-title {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: var(--space-lg);
+}
+.section-title--center {
+  align-items: center;
+  text-align: center;
+}
+.section-title__h {
+  font-size: var(--step-3);
+}

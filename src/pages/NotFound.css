@@ -1,0 +1,17 @@
+.notfound { display: grid; place-items: center; min-height: 70vh; }
+.notfound__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.1rem;
+}
+.notfound__code {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 20vw, 11rem);
+  font-weight: 700;
+  line-height: 1;
+}
+.notfound__inner h1 { font-size: var(--step-3); }
+.notfound__inner p { color: var(--text-soft); max-width: 42ch; }
+.notfound__inner .btn { margin-top: 0.6rem; }

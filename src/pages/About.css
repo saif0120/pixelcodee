@@ -1,0 +1,106 @@
+.about__grid { margin-bottom: var(--space-md); }
+.about__intro {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.about__photo-wrap {
+  width: 180px;
+  height: 180px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+}
+.about__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about__para {
+  color: var(--text-soft);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.about__block {
+  padding: var(--space-md) 0;
+  border-top: 1px solid var(--border);
+}
+.about__h {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+.about__values {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+.value-card {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.value-card__icon {
+  font-size: 1.4rem;
+  color: var(--accent-1);
+}
+.value-card h4 { font-weight: 600; }
+.value-card p { font-size: 0.9rem; color: var(--text-soft); line-height: 1.55; }
+
+/* Skills as badges */
+.about__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  font-weight: 500;
+  transition: all 0.25s var(--ease);
+}
+.skill-badge svg { color: var(--accent-1); font-size: 1.05rem; }
+.skill-badge:hover {
+  border-color: color-mix(in srgb, var(--accent-1) 40%, transparent);
+  color: var(--text);
+}
+
+/* Certs */
+.about__certs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.cert-card {
+  padding: 1.2rem 1.4rem;
+}
+.cert-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; }
+.cert-card span { font-size: 0.82rem; color: var(--text-muted); }
+
+/* CTA */
+.about__cta {
+  text-align: center;
+  padding: var(--space-md) 0;
+}
+.about__cta h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 640px) {
+  .about__intro { grid-template-columns: 1fr; }
+  .about__photo-wrap { width: 140px; height: 140px; margin: 0 auto; }
+}

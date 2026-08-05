@@ -1,0 +1,67 @@
+.paths { padding: var(--space-md) 0; }
+.paths__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.path-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  height: 100%;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.path-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+  pointer-events: none;
+}
+.path-card--recruiter::before { background: radial-gradient(120% 100% at 0% 0%, color-mix(in srgb, #6366f1 14%, transparent), transparent 60%); }
+.path-card--client::before { background: radial-gradient(120% 100% at 100% 0%, color-mix(in srgb, #22d3ee 16%, transparent), transparent 60%); }
+.path-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--accent-1) 45%, transparent);
+  box-shadow: var(--shadow-md);
+}
+.path-card:hover::before { opacity: 1; }
+.path-card__emoji { font-size: 2rem; }
+.path-card__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+.path-card__text { color: var(--text-soft); line-height: 1.6; font-size: 0.95rem; }
+.path-card__links { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
+.path-card__pill {
+  font-size: 0.76rem;
+  padding: 0.28rem 0.7rem;
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--text) 6%, transparent);
+  border: 1px solid var(--border);
+  color: var(--text-soft);
+}
+.path-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--accent-1);
+  font-size: 0.95rem;
+  margin-top: 0.4rem;
+}
+.path-card__cta svg { transition: transform 0.25s var(--ease); }
+.path-card:hover .path-card__cta svg { transform: translateX(4px); }
+@media (max-width: 760px) {
+  .paths__grid { grid-template-columns: 1fr; }
+}

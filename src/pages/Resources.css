@@ -1,0 +1,18 @@
+.res__block { padding: var(--space-md) 0; border-top: 1px solid var(--border); }
+.res__block:first-of-type { border-top: none; }
+.res__h { font-family: var(--font-display); font-size: clamp(1.15rem, 2.5vw, 1.5rem); font-weight: 700; margin-bottom: var(--space-sm); }
+.res__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+.res-card { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.5rem; text-decoration: none; color: inherit; transition: transform 0.25s var(--ease), border-color 0.25s var(--ease); }
+.res-card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent-1) 40%, transparent); }
+.res-card__icon { font-size: 1.4rem; color: var(--accent-1); }
+.res-card h4 { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+.res-card p { font-size: 0.86rem; color: var(--text-soft); line-height: 1.5; flex: 1; }
+.res-card__cta { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; font-weight: 600; color: var(--accent-1); margin-top: 0.3rem; }
+.res-card--soon { opacity: 0.75; }
+.res-card__soon { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-2); background: color-mix(in srgb, var(--accent-2) 15%, transparent); padding: 0.15rem 0.45rem; border-radius: 6px; }
+.roadmap { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+.roadmap__col { padding: 1.5rem; }
+.roadmap__phase { display: inline-block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-1); margin-bottom: 0.8rem; }
+.roadmap__col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.roadmap__col li { font-size: 0.88rem; color: var(--text-soft); padding-left: 1rem; position: relative; }
+.roadmap__col li::before { content: '→'; position: absolute; left: 0; color: var(--accent-1); }

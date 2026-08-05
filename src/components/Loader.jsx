@@ -12,7 +12,7 @@ export default function Loader() {
       <div className="loader__inner">
         <motion.img
           className="loader__mark"
-          src="/logo.png"
+          src="/logo.webp"
           alt="Loading"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}

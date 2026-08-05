@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FiArrowDown, FiArrowUpRight } from 'react-icons/fi';
 import Button from '../components/Button';
+import Picture from '../components/Picture';
 import SocialLinks from '../components/SocialLinks';
 import AudiencePaths from '../components/AudiencePaths';
 import { useTypewriter } from '../hooks/useTypewriter';
@@ -59,7 +60,7 @@ export default function Home() {
         <motion.div className="hero__profile" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}>
           <div className="hero__orbit">
             <motion.div className="hero__avatar" animate={{ y: [0, -12, 0] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}>
-              <img src="/profile.jpg" alt={site.name} />
+              <Picture src="/profile.jpg" webp="/profile.webp" alt={`${site.name}, web developer`} loading="eager" fetchpriority="high" width="220" height="220" />
             </motion.div>
             <span className="hero__ring hero__ring--1" />
             <span className="hero__ring hero__ring--2" />

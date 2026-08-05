@@ -97,7 +97,10 @@ export default function Footer() {
         {/* Brand column */}
         <div className="footer__brand">
           <Link to="/" className="footer__logo" data-cursor="hover">
-            <img src="/logo.png" alt="PixelCodee" className="footer__logo-img" />
+            <picture>
+              <source srcSet="/logo.webp" type="image/webp" />
+              <img src="/logo.png" alt="PixelCodee — Saif Ali" className="footer__logo-img" width="120" height="56" loading="lazy" />
+            </picture>
           </Link>
           <p className="footer__bio">{site.bio}</p>
           <SocialLinks />

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { FiDownload, FiGithub, FiLinkedin, FiMail, FiFileText, FiBookOpen, FiAward, FiFolder, FiArrowUpRight } from 'react-icons/fi';
 import SectionTitle from '../components/SectionTitle';
 import { useSEO } from '../hooks/useSEO';
+import { useJsonLd, breadcrumb } from '../hooks/useJsonLd';
 import { site, currentLearning } from '../data/site';
 import { fadeUp, stagger, reveal } from '../animations/variants';
 import './Resources.css';
@@ -31,6 +32,10 @@ export default function Resources() {
     description: 'Central hub for Saif Ali\'s resume, GitHub, LinkedIn, and learning roadmap. Certificates, blog, and case studies coming soon.',
     path: '/resources',
   });
+  useJsonLd('bc-resources', breadcrumb([
+    { name: 'Home', path: '/' },
+    { name: 'Resources', path: '/resources' },
+  ]));
 
   return (
     <div className="resources page container">

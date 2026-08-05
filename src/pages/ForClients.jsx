@@ -6,6 +6,7 @@ import { FaWhatsapp } from 'react-icons/fa6';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
 import { useSEO } from '../hooks/useSEO';
+import { useJsonLd, breadcrumb } from '../hooks/useJsonLd';
 import { services, process, faqs, businessBenefits, capabilities, pricingDisclaimer } from '../data/services';
 import { whyChooseMe, site } from '../data/site';
 import { fadeUp, stagger, reveal } from '../animations/variants';
@@ -31,6 +32,19 @@ export default function ForClients() {
     description: 'Affordable web development for businesses in India — business websites, WordPress, landing pages, redesigns, and maintenance. Transparent launch pricing. Get a free quote.',
     path: '/for-clients',
   });
+  useJsonLd('faq-schema', {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  });
+  useJsonLd('bc-clients', breadcrumb([
+    { name: 'Home', path: '/' },
+    { name: 'For Business Owners', path: '/for-clients' },
+  ]));
   const waUrl = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent('Hi Saif, I want a website for my business.')}`;
 
   return (

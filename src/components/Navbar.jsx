@@ -39,7 +39,10 @@ export default function Navbar() {
     >
       <div className="nav__inner container">
         <Link to="/" className="nav__brand" data-cursor="hover" onClick={() => setOpen(false)}>
-          <img src="/logo.png" alt="PixelCodee" className="nav__logo-img" />
+          <picture>
+            <source srcSet="/logo.webp" type="image/webp" />
+            <img src="/logo.png" alt="PixelCodee — Saif Ali" className="nav__logo-img" width="120" height="46" />
+          </picture>
         </Link>
 
         <nav className="nav__links" aria-label="Primary">

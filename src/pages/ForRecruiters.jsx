@@ -4,6 +4,7 @@ import SectionTitle from '../components/SectionTitle';
 import Timeline from '../components/Timeline';
 import Button from '../components/Button';
 import { useSEO } from '../hooks/useSEO';
+import { useJsonLd, breadcrumb } from '../hooks/useJsonLd';
 import { skillIcons } from '../utils/icons';
 import { skills } from '../data/skills';
 import { experience } from '../data/experience';
@@ -19,6 +20,10 @@ export default function ForRecruiters() {
     description: 'Professional summary, technical skills, experience, projects, and resume for Saif Ali — full stack web developer (React, Node.js, MongoDB, WordPress) based in New Delhi.',
     path: '/for-recruiters',
   });
+  useJsonLd('bc-recruiters', breadcrumb([
+    { name: 'Home', path: '/' },
+    { name: 'For Hiring Managers', path: '/for-recruiters' },
+  ]));
 
   return (
     <div className="recruiter page container">

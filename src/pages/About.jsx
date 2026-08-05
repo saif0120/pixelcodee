@@ -3,6 +3,7 @@ import { FiMessageCircle, FiZap, FiTool, FiArrowUpRight } from 'react-icons/fi';
 import SectionTitle from '../components/SectionTitle';
 import Timeline from '../components/Timeline';
 import Button from '../components/Button';
+import Picture from '../components/Picture';
 import { skillIcons } from '../utils/icons';
 import { skills } from '../data/skills';
 import { experience } from '../data/experience';
@@ -33,7 +34,7 @@ export default function About() {
       <motion.div className="about__grid" variants={fadeUp} {...reveal}>
         <div className="about__intro">
           <div className="about__photo-wrap">
-            <img src="/profile.jpg" alt={site.name} className="about__photo" />
+            <Picture src="/profile.jpg" webp="/profile.webp" alt={`${site.name}, web developer`} className="about__photo" width="180" height="180" />
           </div>
           <div>
             <p className="about__para">

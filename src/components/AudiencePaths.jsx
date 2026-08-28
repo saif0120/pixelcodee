@@ -33,7 +33,17 @@ export default function AudiencePaths() {
       <motion.div className="paths__grid" variants={stagger(0.12)} initial="hidden" whileInView="show" viewport={{ once: true, margin: '-80px' }}>
         {paths.map((p) => (
           <motion.div key={p.to} variants={fadeUp}>
-            <Link to={p.to} className={`path-card path-card--${p.variant}`} data-cursor="hover">
+            <Link
+              to={p.to}
+              className={`path-card path-card--${p.variant}`}
+              data-cursor="hover"
+              onMouseMove={(e) => {
+                const r = e.currentTarget.getBoundingClientRect();
+                e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`);
+                e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
+              }}
+            >
+              <span className="path-card__spot" aria-hidden="true" />
               <span className="path-card__emoji" aria-hidden="true">{p.emoji}</span>
               <h3 className="path-card__title">{p.title}</h3>
               <p className="path-card__text">{p.text}</p>

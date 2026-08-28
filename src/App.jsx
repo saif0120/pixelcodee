@@ -7,6 +7,8 @@ import Footer from './components/Footer';
 import AnimatedBackground from './components/AnimatedBackground';
 import CustomCursor from './components/CustomCursor';
 import ScrollToTop from './components/ScrollToTop';
+import ScrollProgress from './components/ScrollProgress';
+import SmoothScroll from './components/SmoothScroll';
 import WhatsAppButton from './components/WhatsAppButton';
 import Loader from './components/Loader';
 import { pageTransition } from './animations/variants';
@@ -57,9 +59,10 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    <SmoothScroll>
       <a href="#main-content" className="skip-link">Skip to content</a>
       <AnimatePresence>{loading && <Loader />}</AnimatePresence>
+      <ScrollProgress />
       <AnimatedBackground />
       <CustomCursor />
       <ScrollToTop />
@@ -67,6 +70,6 @@ export default function App() {
       <AnimatedRoutes />
       <Footer />
       <WhatsAppButton />
-    </>
+    </SmoothScroll>
   );
 }

@@ -1,7 +1,10 @@
 // Rich project schema — supports unlimited projects.
 // Every project can carry a full case study. Empty fields are simply not rendered.
 // Screenshots are pulled live from each site via thum.io (auto-updating, no hosting needed).
-const shot = (url) => `https://image.thum.io/get/width/1200/crop/750/noanimate/${url}`;
+// Screenshots via WordPress mShots (free, renders the real page).
+// To use your OWN screenshot instead: drop the image in /public/shots/ and set
+// image: '/shots/your-file.png' on that project (most reliable — recommended).
+const shot = (url) => `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=1200&h=750`;
 
 export const projects = [
   {
@@ -40,7 +43,7 @@ export const projects = [
     lessons: 'Working with a modern App-Router + Prisma + Neon stack sharpened my understanding of server components, data modelling, and shipping a secure checkout flow to production.',
     future: 'Add order tracking, wishlist, and an admin dashboard for inventory management.',
   },
-   {
+  {
     id: 'celestial-boutique',
     title: 'Celestial Boutique — Fashion Boutique',
     blurb: 'A website for a clothing boutique offering custom outfit design and tailoring, built in PHP.',

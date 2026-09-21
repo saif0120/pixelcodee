@@ -15,11 +15,17 @@ export default function ProjectModal({ project, onClose }) {
     if (!project) return;
     const onKey = (e) => e.key === 'Escape' && onClose();
     document.addEventListener('keydown', onKey);
+
+    // Lock background scroll AND pause Lenis smooth-scroll so the modal
+    // scrolls internally instead of the page scrolling behind it.
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    if (window.__lenis) window.__lenis.stop();
+
     return () => {
       document.removeEventListener('keydown', onKey);
-      document.body.style.overflow = prev; // restore, never leave locked
+      document.body.style.overflow = prev;
+      if (window.__lenis) window.__lenis.start();
     };
   }, [project, onClose]);
 
@@ -29,6 +35,7 @@ export default function ProjectModal({ project, onClose }) {
         <motion.div className="modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} role="dialog" aria-modal="true" aria-label={`${project.title} case study`}>
           <motion.div
             className="modal__panel"
+            data-lenis-prevent
             initial={{ opacity: 0, y: 30, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.98 }}
@@ -37,7 +44,7 @@ export default function ProjectModal({ project, onClose }) {
           >
             <button className="modal__close" onClick={onClose} aria-label="Close" data-cursor="hover"><FiX /></button>
             <div className="modal__media">
-              <img src={project.image} alt={`${project.title} screenshot`} />
+              <img src={project.image} alt={`${project.title} screenshot`} loading="lazy" />
             </div>
             <div className="modal__body">
               <div className="modal__tags">

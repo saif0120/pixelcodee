@@ -1,77 +1,18 @@
-.bg-layer {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-  pointer-events: none;
-}
-.bg-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 75% 65% at 50% 0%, #000 15%, transparent 78%);
-  opacity: 0.55;
-  animation: grid-pan 40s linear infinite;
-}
+.bg-layer { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.bg-grid { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 75% 65% at 50% 0%, #000 15%, transparent 78%); opacity: 0.55; animation: grid-pan 40s linear infinite; }
 @keyframes grid-pan { to { background-position: 60px 60px; } }
-
-.blob {
-  position: absolute;
-  width: 48vw;
-  height: 48vw;
-  max-width: 680px;
-  max-height: 680px;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.42;
-  will-change: transform;
-}
+.blob { position: absolute; width: 48vw; height: 48vw; max-width: 680px; max-height: 680px; border-radius: 50%; filter: blur(100px); opacity: 0.42; will-change: transform; }
 .blob--1 { background: var(--accent-1); top: -14%; left: -10%; animation: drift1 20s var(--ease) infinite alternate; }
 .blob--2 { background: var(--accent-2); top: 14%; right: -14%; animation: drift2 24s var(--ease) infinite alternate; }
 .blob--3 { background: #a855f7; bottom: -20%; left: 30%; opacity: 0.3; animation: drift3 28s var(--ease) infinite alternate; }
 @keyframes drift1 { to { transform: translate3d(16vw, 18vh, 0) scale(1.2); } }
 @keyframes drift2 { to { transform: translate3d(-14vw, 24vh, 0) scale(1.15); } }
 @keyframes drift3 { to { transform: translate3d(10vw, -16vh, 0) scale(0.85); } }
-
-/* Sweeping diagonal gradient beam */
-.bg-beam {
-  position: absolute;
-  top: -40%;
-  left: -30%;
-  width: 60%;
-  height: 180%;
-  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent-2) 14%, transparent), transparent);
-  filter: blur(40px);
-  transform: rotate(18deg);
-  animation: beam-sweep 14s ease-in-out infinite;
-  opacity: 0.6;
-}
-@keyframes beam-sweep {
-  0%, 100% { transform: rotate(18deg) translateX(-20%); opacity: 0.2; }
-  50% { transform: rotate(18deg) translateX(160%); opacity: 0.7; }
-}
-
-/* Cursor-reactive glow */
-.bg-cursor-glow {
-  position: absolute;
-  top: 0; left: 0;
-  width: 420px; height: 420px;
-  margin: -210px 0 0 -210px;
-  border-radius: 50%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--accent-1) 18%, transparent), transparent 65%);
-  will-change: transform;
-  pointer-events: none;
-}
-
+.bg-beam { position: absolute; top: -40%; left: -30%; width: 60%; height: 180%; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent-2) 14%, transparent), transparent); filter: blur(40px); transform: rotate(18deg); animation: beam-sweep 14s ease-in-out infinite; opacity: 0.6; }
+@keyframes beam-sweep { 0%, 100% { transform: rotate(18deg) translateX(-20%); opacity: 0.2; } 50% { transform: rotate(18deg) translateX(160%); opacity: 0.7; } }
+.bg-cursor-glow { position: absolute; top: 0; left: 0; width: 420px; height: 420px; margin: -210px 0 0 -210px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent-1) 18%, transparent), transparent 65%); will-change: transform; pointer-events: none; }
 [data-theme='light'] .blob { opacity: 0.28; }
 [data-theme='light'] .blob--3 { opacity: 0.18; }
 [data-theme='light'] .bg-cursor-glow { background: radial-gradient(circle, color-mix(in srgb, var(--accent-1) 12%, transparent), transparent 65%); }
-
-@media (prefers-reduced-motion: reduce) {
-  .blob, .bg-beam, .bg-grid { animation: none; }
-  .bg-cursor-glow { display: none; }
-}
+@media (prefers-reduced-motion: reduce) { .blob, .bg-beam, .bg-grid { animation: none; } .bg-cursor-glow { display: none; } }
 @media (max-width: 640px) { .bg-cursor-glow, .bg-beam { display: none; } }

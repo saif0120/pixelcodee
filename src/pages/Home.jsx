@@ -36,50 +36,33 @@ export default function Home() {
     <div className="home page">
       <motion.section className="hero container" ref={heroRef} style={{ scale: heroScale, opacity: heroOpacity, y: heroY }}>
         <motion.div className="hero__content" variants={stagger(0.1, 0.12)} initial="hidden" animate="show">
-          <motion.span className="eyebrow" variants={fadeUp}>
-            Independent Full Stack Web Developer · New Delhi
-          </motion.span>
+          <motion.span className="eyebrow" variants={fadeUp}>Independent Full Stack Web Developer · New Delhi</motion.span>
 
           <motion.h1 className="hero__title" variants={fadeUp} aria-label="Building Modern Websites That Help Your Business Grow">
             <span className="hero__title-line">
               {'Building Modern Websites That'.split(' ').map((w, i) => (
                 <span className="hero__word-mask" key={i}>
-                  <motion.span className="hero__word"
-                    initial={{ y: '110%' }} animate={{ y: '0%' }}
-                    transition={{ duration: 0.7, delay: 0.3 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}>
-                    {w}&nbsp;
-                  </motion.span>
+                  <motion.span className="hero__word" initial={{ y: '110%' }} animate={{ y: '0%' }} transition={{ duration: 0.7, delay: 0.3 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}>{w}&nbsp;</motion.span>
                 </span>
               ))}
             </span>
             <span className="hero__title-line">
               {'Help Your Business'.split(' ').map((w, i) => (
                 <span className="hero__word-mask" key={i}>
-                  <motion.span className="hero__word"
-                    initial={{ y: '110%' }} animate={{ y: '0%' }}
-                    transition={{ duration: 0.7, delay: 0.55 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}>
-                    {w}&nbsp;
-                  </motion.span>
+                  <motion.span className="hero__word" initial={{ y: '110%' }} animate={{ y: '0%' }} transition={{ duration: 0.7, delay: 0.55 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}>{w}&nbsp;</motion.span>
                 </span>
               ))}
               <span className="hero__word-mask">
-                <motion.span className="hero__word gradient-text"
-                  initial={{ y: '110%' }} animate={{ y: '0%' }}
-                  transition={{ duration: 0.7, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}>
-                  Grow
-                </motion.span>
+                <motion.span className="hero__word gradient-text" initial={{ y: '110%' }} animate={{ y: '0%' }} transition={{ duration: 0.7, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}>Grow</motion.span>
               </span>
             </span>
           </motion.h1>
 
           <motion.div className="hero__typed" variants={fadeUp}>
-            <span className="gradient-text">{typed}</span>
-            <span className="hero__caret" aria-hidden="true" />
+            <span className="gradient-text">{typed}</span><span className="hero__caret" aria-hidden="true" />
           </motion.div>
 
-          <motion.p className="hero__lead section-lead" variants={fadeUp}>
-            {site.bio}
-          </motion.p>
+          <motion.p className="hero__lead section-lead" variants={fadeUp}>{site.bio}</motion.p>
 
           <motion.div className="hero__actions" variants={fadeUp}>
             <Button to="/projects" variant="primary" icon={<FiArrowUpRight />}>View projects</Button>
@@ -91,9 +74,7 @@ export default function Home() {
             {trustLine.map((t) => <li key={t}>{t}</li>)}
           </motion.ul>
 
-          <motion.div className="hero__socials" variants={fadeUp}>
-            <SocialLinks />
-          </motion.div>
+          <motion.div className="hero__socials" variants={fadeUp}><SocialLinks /></motion.div>
         </motion.div>
 
         <motion.div className="hero__profile" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}>
@@ -101,8 +82,7 @@ export default function Home() {
             <motion.div className="hero__avatar" animate={{ y: [0, -12, 0] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}>
               <Picture src="/profile.jpg" webp="/profile.webp" alt={`${site.name}, web developer`} loading="eager" fetchpriority="high" width="220" height="220" />
             </motion.div>
-            <span className="hero__ring hero__ring--1" />
-            <span className="hero__ring hero__ring--2" />
+            <span className="hero__ring hero__ring--1" /><span className="hero__ring hero__ring--2" />
             <motion.span className="hero__chip hero__chip--react" animate={{ y: [0, -10, 0] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}>React.js</motion.span>
             <motion.span className="hero__chip hero__chip--ui" animate={{ y: [0, 10, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}>WordPress</motion.span>
             <motion.span className="hero__chip hero__chip--node" animate={{ y: [0, -8, 0] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}>Node.js</motion.span>
@@ -110,77 +90,41 @@ export default function Home() {
         </motion.div>
       </motion.section>
 
-      {/* Infinite tech marquee */}
-      <div className="home__marquee">
-        <Marquee items={marqueeItems} speed={30} />
-      </div>
+      <div className="home__marquee"><Marquee items={marqueeItems} speed={30} /></div>
 
-      {/* Dual audience paths */}
       <AudiencePaths />
 
-      {/* Signature: animated code terminal */}
       <section className="container code-section">
         <div className="code-section__text">
           <Reveal><span className="eyebrow">This is me, in code</span></Reveal>
           <SplitText as="h2" className="code-section__title" text="A developer who ships clean, fast, reliable work." />
-          <Reveal delay={0.1}>
-            <p className="section-lead">
-              I don't just talk about building websites — I build them properly. Clean structure,
-              modern tools, and code that's made to last and easy to maintain.
-            </p>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <div className="code-section__cta">
-              <Button to="/projects" variant="primary" icon={<FiArrowUpRight />}>See my work</Button>
-            </div>
-          </Reveal>
+          <Reveal delay={0.1}><p className="section-lead">I don't just talk about building websites — I build them properly. Clean structure, modern tools, and code that's made to last and easy to maintain.</p></Reveal>
+          <Reveal delay={0.2}><div className="code-section__cta"><Button to="/projects" variant="primary" icon={<FiArrowUpRight />}>See my work</Button></div></Reveal>
         </div>
-        <Reveal direction="left" className="code-section__win">
-          <CodeShowcase />
-        </Reveal>
+        <Reveal direction="left" className="code-section__win"><CodeShowcase /></Reveal>
       </section>
 
-      {/* WhatsApp chat mockup — "what working with me looks like" */}
       <section className="container chat-section">
-        <Reveal direction="right" className="chat-section__mock">
-          <ChatMockup />
-        </Reveal>
+        <Reveal direction="right" className="chat-section__mock"><ChatMockup /></Reveal>
         <div className="chat-section__text">
           <Reveal><span className="eyebrow">What working with me looks like</span></Reveal>
           <SplitText as="h2" className="chat-section__title" text="Just message me. I'll handle the rest." />
-          <Reveal delay={0.1}>
-            <p className="section-lead">
-              No agencies, no long email threads, no confusing dashboards. You message me on WhatsApp,
-              tell me what you need, and I build it — with clear pricing and honest timelines.
-            </p>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <div className="chat-section__cta">
-              <Button href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent('Hi Saif, I need a website for my business.')}`} variant="primary" icon={<FiArrowUpRight />}>
-                Message me on WhatsApp
-              </Button>
-            </div>
-          </Reveal>
+          <Reveal delay={0.1}><p className="section-lead">No agencies, no long email threads, no confusing dashboards. You message me on WhatsApp, tell me what you need, and I build it — with clear pricing and honest timelines.</p></Reveal>
+          <Reveal delay={0.2}><div className="chat-section__cta">
+            <Button href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent('Hi Saif, I need a website for my business.')}`} variant="primary" icon={<FiArrowUpRight />}>Message me on WhatsApp</Button>
+          </div></Reveal>
         </div>
       </section>
 
-      {/* Punchy closing CTA */}
       <section className="container punch">
-        <Reveal>
-          <SplitText as="h2" className="punch__title" text="You could keep scrolling..." />
-        </Reveal>
-        <Reveal delay={0.15}>
-          <p className="punch__sub">or you could just get your website built. Free quote, no pressure.</p>
-        </Reveal>
-        <Reveal delay={0.3}>
-          <div className="punch__actions">
-            <Button to="/contact" variant="primary" icon={<FiArrowUpRight />}>Get a free quote</Button>
-            <Button to="/projects" variant="ghost">See my work</Button>
-          </div>
-        </Reveal>
+        <Reveal><SplitText as="h2" className="punch__title" text="You could keep scrolling..." /></Reveal>
+        <Reveal delay={0.15}><p className="punch__sub">or you could just get your website built. Free quote, no pressure.</p></Reveal>
+        <Reveal delay={0.3}><div className="punch__actions">
+          <Button to="/contact" variant="primary" icon={<FiArrowUpRight />}>Get a free quote</Button>
+          <Button to="/projects" variant="ghost">See my work</Button>
+        </div></Reveal>
       </section>
 
-      {/* Stats with count-up */}
       <motion.section className="container stats" variants={stagger()} initial="hidden" whileInView="show" viewport={{ once: true }}>
         {stats.map((s) => (
           <motion.div className="stats__item" key={s.label} variants={fadeUp}>
@@ -189,13 +133,6 @@ export default function Home() {
           </motion.div>
         ))}
       </motion.section>
-
-      <motion.a href="#" className="scroll-hint" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4 }} aria-hidden="true">
-        <span>Scroll</span>
-        <motion.span className="scroll-hint__icon" animate={{ y: [0, 6, 0] }} transition={{ duration: 1.6, repeat: Infinity }}>
-          <FiArrowDown />
-        </motion.span>
-      </motion.a>
     </div>
   );
 }

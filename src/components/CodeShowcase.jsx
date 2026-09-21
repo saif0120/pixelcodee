@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion, useInView, useReducedMotion } from 'framer-motion';
+import { useInView, useReducedMotion } from 'framer-motion';
 import './CodeShowcase.css';
 
 const LINES = [
@@ -20,7 +20,6 @@ function useTypedLines(active) {
   const [lineIdx, setLineIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
   const reduce = useReducedMotion();
-
   useEffect(() => {
     if (!active) return;
     if (reduce) { setLineIdx(LINES.length); return; }
@@ -33,7 +32,6 @@ function useTypedLines(active) {
     const id = setTimeout(() => { setLineIdx((l) => l + 1); setCharIdx(0); }, 180);
     return () => clearTimeout(id);
   }, [active, lineIdx, charIdx, reduce]);
-
   return { lineIdx, charIdx };
 }
 
@@ -41,7 +39,6 @@ export default function CodeShowcase() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
   const { lineIdx, charIdx } = useTypedLines(inView);
-
   return (
     <div className="code-showcase" ref={ref}>
       <div className="code-win">
@@ -51,24 +48,22 @@ export default function CodeShowcase() {
           <span className="code-win__dot code-win__dot--g" />
           <span className="code-win__file">developer.js</span>
         </div>
-        <pre className="code-win__body">
-          <code>
-            {LINES.map((ln, i) => {
-              let text = '';
-              if (i < lineIdx) text = ln.t;
-              else if (i === lineIdx) text = ln.t.slice(0, charIdx);
-              const typing = i === lineIdx && charIdx < ln.t.length;
-              if (i > lineIdx) return <span key={i} className="code-line">{'\u00A0'}</span>;
-              return (
-                <span key={i} className={`code-line code-line--${ln.c}`}>
-                  <span className="code-ln">{String(i + 1).padStart(2, ' ')}</span>
-                  <span className="code-txt">{text || '\u00A0'}</span>
-                  {typing && <span className="code-cursor" />}
-                </span>
-              );
-            })}
-          </code>
-        </pre>
+        <pre className="code-win__body"><code>
+          {LINES.map((ln, i) => {
+            let text = '';
+            if (i < lineIdx) text = ln.t;
+            else if (i === lineIdx) text = ln.t.slice(0, charIdx);
+            const typing = i === lineIdx && charIdx < ln.t.length;
+            if (i > lineIdx) return <span key={i} className="code-line">{'\u00A0'}</span>;
+            return (
+              <span key={i} className={`code-line code-line--${ln.c}`}>
+                <span className="code-ln">{String(i + 1).padStart(2, ' ')}</span>
+                <span className="code-txt">{text || '\u00A0'}</span>
+                {typing && <span className="code-cursor" />}
+              </span>
+            );
+          })}
+        </code></pre>
       </div>
     </div>
   );

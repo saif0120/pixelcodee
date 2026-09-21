@@ -57,7 +57,6 @@ export default function App() {
     const t = setTimeout(() => setLoading(false), 1600);
     return () => clearTimeout(t);
   }, []);
-
   return (
     <SmoothScroll>
       <a href="#main-content" className="skip-link">Skip to content</a>
